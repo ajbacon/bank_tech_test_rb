@@ -22,10 +22,25 @@ describe BankAccount do
       subject.deposit(1000, transaction)
       expect(subject.transactions).to include transaction
     end
+
+    context "invalid inputs" do
+      it "should raise an error if a string is input" do
+        expect { subject.deposit("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
+      end
+
+      it "should raise an error if a negative number is input" do
+        expect { subject.deposit(-100.00, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
+      end
+
+      it "should raise an error if a numnber with more than 2 decimal places is input" do
+        expect { subject.deposit(123.456, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
+      end
+    end
+
   end
 
   describe "#withdraw" do
-    it "takes a withdrawal of 500 and increases the balance by 500" do
+    it "takes a withdrawal of 500 and decreases the balance by 500" do
       subject.deposit(1000, transaction)
       expect { subject.withdraw(500, transaction) }.to change { subject.balance }.by(-500)
     end
@@ -35,4 +50,6 @@ describe BankAccount do
       expect(subject.transactions).to include transaction
     end
   end
+
+  
 end
