@@ -5,9 +5,9 @@ Classes:
     - creates and stores transactions 
     - can print a statement
 
-  - Transaction
-    - stores a transaction
-    - holds the date/amount/type of transaction
+  - Transaction history
+    - stores each transaction as a hash
+    - holds the date/amount/type of a transaction
     - holds the balance as of the transaction
 
   - Print Statement
