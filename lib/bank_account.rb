@@ -1,21 +1,21 @@
 class BankAccount
   attr_reader :balance, :transactions
 
-  def initialize
+  def initialize(history = TransactionHistory.new)
     @balance = 0
-    @transactions = []
+    @transactions = history
   end
 
-  def deposit(amount, transaction = Transaction.new())
+  def deposit(amount)
     validate_amount(amount)
     @balance += amount
-    @transactions << transaction
+    @transactions.add_transaction(amount, @balance)
   end
 
-  def withdraw(amount, transaction = Transaction.new())
+  def withdraw(amount)
     validate_amount(amount)
     @balance -= amount
-    @transactions << transaction
+    @transactions.add_transaction(amount, @balance)
   end
 
   private 
