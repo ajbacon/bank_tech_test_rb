@@ -1,13 +1,14 @@
+require 'bank_account'
+
 describe BankAccount do
 
   before(:each) do
-    account = BankAccount.new
+    subject { described_class.new() }
   end
 
   describe "#balance" do
     it "should have an initial balance of 0" do 
-      expect(account.balance()).to eq 0
+      expect(subject.balance).to eq 0
     end
   end
-  
 end
