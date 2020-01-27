@@ -7,6 +7,6 @@ class TransactionHistory
   end
 
   def add(transaction)
-    @transactions << transaction
+    @transactions.unshift(transaction)
   end
 end
