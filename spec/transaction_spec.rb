@@ -2,7 +2,7 @@ require 'Transaction'
 
 describe Transaction do
 
-  let(:subject) { described_class.new(1000, "CREDIT", "27/01/2020", 500) }
+  let(:subject) { described_class.new(1000, "CREDIT", 500, "27/01/2020") }
 
   it "should have an amount" do
     expect(subject.amount).to eq 1000
