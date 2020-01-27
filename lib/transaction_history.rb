@@ -22,11 +22,10 @@ class TransactionHistory
   end
 
   def add_credit(amount)
-    amount < 0 ? "" : amount
+    amount.negative? ? "" : amount
   end
 
   def add_debit(amount)
-    amount < 0 ? (amount * -1) : ""
+    amount.negative? ? (amount * -1) : ""
   end
-
 end
