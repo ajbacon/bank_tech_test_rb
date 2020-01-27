@@ -1,0 +1,14 @@
+Classes:
+
+  - BankAccount
+    - has an ID
+    - creates and stores transactions 
+    - can print a statement
+
+  - Transaction
+    - stores a transaction
+    - holds the date/amount/type of transaction
+    - holds the balance as of the transaction
+
+  - Print Statement
+    - takes an array of transactions and prints them to the terminal
