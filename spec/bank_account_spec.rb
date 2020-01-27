@@ -20,12 +20,6 @@ describe BankAccount do
       expect { subject.deposit(1000) }.to change { subject.balance }.by 1000
     end
 
-    # it "should store a new deposit transaction" do
-    #   allow(transaction_history).to receive (:add_transaction)
-    #   subject.deposit(1000)
-    #   expect(subject.transactions).to include transaction
-    # end
-
     context "input validation" do
       it "should raise an error if a string is input" do
         expect { subject.deposit("string") }.to raise_error "please enter number to maximum of 2 decimal places"
@@ -51,11 +45,6 @@ describe BankAccount do
       subject.deposit(1000)
       expect { subject.withdraw(500) }.to change { subject.balance }.by(-500)
     end
-
-    # it "should store a new withdrawal transaction" do
-    #   subject.withdraw(1000)
-    #   expect(subject.transactions).to include transaction
-    # end
 
     context "input validation" do
       it "should raise an error if a string is input" do
