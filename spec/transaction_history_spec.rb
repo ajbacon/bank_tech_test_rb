@@ -11,9 +11,7 @@ describe TransactionHistory do
       date = Time.now.strftime("%d/%m/%Y")
       amount, balance = 1000, 500
       subject.add_transaction(amount, balance)
-      expect(subject.transactions).to eq [{date: date, credit: amount, debit: "", balance: balance + amount}]
+      expect(subject.transactions).to eq [{ date: date, credit: amount, debit: "", balance: balance + amount }]
     end
   end
-
-
 end

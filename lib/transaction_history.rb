@@ -8,17 +8,10 @@ class TransactionHistory
 
   def add_transaction(amount, balance)
     @transactions.unshift({
-      date: add_date,
+      date: Time.now.strftime("%d/%m/%Y"),
       credit: amount,
       debit: "",
       balance: balance + amount
     })
   end
-
-  private
-
-  def add_date
-    Time.now.strftime("%d/%m/%Y")
-  end
-
 end
