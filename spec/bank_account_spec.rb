@@ -1,6 +1,7 @@
 require 'bank_account'
 
 describe BankAccount do
+  let(:transaction) { double :transaction }
 
   before(:each) do
     subject { described_class.new() }
@@ -10,5 +11,15 @@ describe BankAccount do
     it "should have an initial balance of 0" do 
       expect(subject.balance).to eq 0
     end
+  end
+
+  describe "#deposit" do
+    it "takes a deposit of 1000 and increases the balance by 1000" do
+      expect { subject.deposit(1000) }.to change { subject.balance }.by 1000
+    end
+    # it "should store a new deposit transaction" do
+    #   subject.deposit(1000)
+    #   expect(subject.balance).to include transaction
+    # end
   end
 end
