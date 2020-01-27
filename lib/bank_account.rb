@@ -38,11 +38,11 @@ class BankAccount
     raise "please enter number to maximum of 2 decimal places" if decimals(amount) > 2
   end
 
-  def decimals(a)
+  def decimals(amount)
     num = 0
-    while(a != a.to_i)
-        num += 1
-        a *= 10
+    while (amount != amount.to_i)
+      num += 1
+      amount *= 10
     end
     num   
   end

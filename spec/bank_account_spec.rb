@@ -5,7 +5,7 @@ describe BankAccount do
   subject { described_class.new(transaction_history) }
 
   before(:each) do
-    allow(transaction_history).to receive (:add_transaction)
+    allow(transaction_history).to receive :add_transaction
   end
 
   describe "#balance" do
@@ -16,7 +16,7 @@ describe BankAccount do
 
   describe "#deposit" do
     it "takes a deposit of 1000 and increases the balance by 1000" do
-      allow(transaction_history).to receive (:add_transaction)
+      allow(transaction_history).to receive :add_transaction
       expect { subject.deposit(1000) }.to change { subject.balance }.by 1000
     end
 
@@ -60,7 +60,7 @@ describe BankAccount do
       end
 
       it "should not raise an error if a postive number with 2 decimal is added" do
-        expect { subject.withdraw(123.45) }.to change { subject.balance }.by -123.45
+        expect { subject.withdraw(123.45) }.to change { subject.balance }.by(-123.45)
       end
     end
   end
