@@ -20,5 +20,14 @@ describe TransactionHistory do
       subject.add_transaction(amount, balance)
       expect(subject.transactions).to eq [{ date: date, credit: "", debit: amount * -1, balance: balance + amount }]
     end
+
+    it "should store multiple transactions to the transaction history" do 
+      date = Time.now.strftime("%d/%m/%Y")
+
+      subject.add_transaction(1000, 0)
+      subject.add_transaction(-500, 1000)
+
+      expect(subject.transactions.length).to eq 2
+    end
   end
 end
