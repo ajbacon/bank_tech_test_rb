@@ -72,14 +72,11 @@ Instance variables and methods attributed to each class
 | **BANK_ACCOUNT**     | **TRANSACTION**      | **TRANSACTION_HISTORY** | **PRINT_STATEMENT**
 | ---------------      | -------------------  | ---------------         | ---------------
 | **Instance Variables** |
-| ---------------      | -------------------  | ---------------         | ---------------
 | @balance             | @amount              | @transactions           | @transaction_history |
 | @transactions        | @date                |                         | |
 |                      | @type                |                         | |
 |                      | @balance             |                         | |
-| ---------------      | -------------------  | ---------------         | ---------------
 | **Methods** |
-| ---------------      | -------------------  | ---------------         | ---------------
 | #deposit             | #amount              | #add                    | #print_header |
 | #withdraw            | #date                |                         | #print_transactions |
 | #statement           | #type                |                         | |
