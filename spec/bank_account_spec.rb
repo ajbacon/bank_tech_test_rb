@@ -55,7 +55,7 @@ describe BankAccount do
 
     it "gives confirmation of the withdrawal" do
       subject.deposit(1000, transaction)
-      expect(subject.withdraw(500, transaction)).to eq "£500 withdrawn successfully"
+      expect(subject.withdraw(500, transaction)).to eq "£500.00 withdrawn successfully"
     end
 
     context "input validation" do

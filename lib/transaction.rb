@@ -8,10 +8,4 @@ class Transaction
     @balance = balance
     @date = date
   end
-
-  private
-
-  def new_balance(balance)
-    @type == "CREDIT" ? balance + @amount : balance - @amount
-  end
 end
