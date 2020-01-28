@@ -20,6 +20,12 @@ class BankAccount
     "£#{amount} withdrawn successfully"
   end
 
+  def statement(print_statement = PrintStatement)
+    print_statement.new(@transactions)
+    print_statement.print_header
+    print_statement.print_transactions
+  end
+
   private 
 
   def validate_amount(amount)

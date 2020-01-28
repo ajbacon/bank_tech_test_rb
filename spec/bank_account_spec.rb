@@ -76,4 +76,18 @@ describe BankAccount do
       end
     end
   end 
+
+  describe "#statement" do
+
+    let(:print_statement1) { double :print_statement }
+    before(:each) do
+      allow(print_statement1).to receive :new
+      allow(print_statement1).to receive(:print_header) { puts "date || credit || debit || balance" }
+      allow(print_statement1).to receive(:print_transactions) { puts "14/01/2012 ||  || 500.00 || 500.00\n10/01/2012 || 1000.00 ||  || 1000.00" }
+    end
+
+    it "should print the statement to the console" do
+      expect { subject.statement(print_statement1) }.to output("date || credit || debit || balance\n14/01/2012 ||  || 500.00 || 500.00\n10/01/2012 || 1000.00 ||  || 1000.00\n").to_stdout
+    end
+  end
 end
