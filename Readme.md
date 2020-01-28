@@ -58,12 +58,14 @@ I want to be able to *reject* transactions that breach the *minimum limit*
 
 ## Design Approach
 
-The program is split into 4 classes described below, each indedendently unit tested.  
+The program is split into 4 classes described below, each indedendently unit tested.
 
 **BankAccount:** This manages user transactions  
 **transaction:** This stores information pertaining to the transaction: Date / Credit or Debit / balance after transaction  
 **transaction_history:** This stores all previous transactions  
-**print_statement:** This formats the transactions for printing to stdout  
+**print_statement:** This formats the transactions for printing to stdout
+
+The code is constructed so that transaction interactions are handled by the bank account class, this class delegates responsibility for storing transaction information, storing transactions and formatting transaction data for printing the summary to ```transaction```, ```transaction_history``` and ```print_statement``` classes respectively. In this way each class can have a single responsibility. A transaction object is created and stored upon calling a ```deposit``` or ```withdraw``` method. The ```statement``` method creates an object of the ```print_statement``` class, which takes all exising transactions and formats them for printing to stdout.
 
 ## Domain Model
 
