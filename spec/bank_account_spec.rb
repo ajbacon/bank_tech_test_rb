@@ -13,12 +13,7 @@ describe BankAccount do
   describe "#deposit" do
     it "takes a deposit of 1000 and increases the balance by 1000" do
       allow(transaction_history).to receive :add_transaction
-      expect { subject.deposit(1000, transaction) }.to change { subject.balance }.by 1000
-    end
-
-    it "gives confirmation of the deposit" do
-      allow(transaction_history).to receive :add_transaction
-      expect(subject.deposit(1000, transaction)).to eq "Deposit successful"
+      expect(subject.deposit(1000, transaction)).to equal 1000
     end
 
     context "input validation" do

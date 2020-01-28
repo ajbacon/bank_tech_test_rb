@@ -3,7 +3,6 @@ require_relative 'print_statement'
 require_relative 'transaction_history'
 
 class BankAccount
-  attr_reader :balance
 
   MINIMUM_BALANCE = 0
 
@@ -14,16 +13,16 @@ class BankAccount
 
   def deposit(amount, transaction_obj = Transaction)
     validate_amount(amount)
-    @balance += amount
+    
     @transactions.add(transaction_obj.new(amount, "CREDIT", @balance))
-    "Deposit successful"
+    @balance += amount
   end
 
   def withdraw(amount, transaction_obj = Transaction)
     validate_amount(amount, true)
-    @balance -= amount
+    
     @transactions.add(transaction_obj.new(amount, "DEBIT", @balance))
-    "£#{'%.2f' % amount} withdrawn successfully"
+    @balance -= amount
   end
 
   def statement(print_statement = PrintStatement.new(@transactions))
