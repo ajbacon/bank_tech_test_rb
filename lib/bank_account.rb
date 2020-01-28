@@ -19,7 +19,8 @@ class BankAccount
   end
 
   def withdraw(amount, transaction_obj = Transaction)
-    validate_amount(amount, true)
+    raise StandardError, "insufficient funds" if @balance - amount < MINIMUM_BALANCE
+    validate_amount(amount)
     
     @transactions.add(transaction_obj.new(amount, "DEBIT", @balance))
     @balance -= amount
@@ -32,11 +33,10 @@ class BankAccount
 
   private 
 
-  def validate_amount(amount, debit = false)
+  def validate_amount(amount)
     check_string(amount)
     check_negative(amount)
     check_decimals(amount)
-    check_funds(amount) if debit
   end
 
   def check_string(amount)
@@ -49,10 +49,6 @@ class BankAccount
 
   def check_decimals(amount)
     raise "please enter number to maximum of 2 decimal places" if decimals(amount) > 2
-  end
-
-  def check_funds(amount)
-    raise "insufficient funds" if @balance - amount < MINIMUM_BALANCE
   end
 
   def decimals(amount)

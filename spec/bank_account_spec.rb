@@ -16,6 +16,8 @@ describe BankAccount do
       expect(subject.deposit(1000, transaction)).to equal 1000
     end
 
+
+
     context "input validation" do
       it "should raise an error if a string is input" do
         expect { subject.deposit("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
@@ -29,7 +31,7 @@ describe BankAccount do
         expect { subject.deposit(123.456, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
       end
 
-      it "should not raise an error if a postive number with 2 decimal is added" do
+      xit "should not raise an error if a postive number with 2 decimal is added" do
         expect { subject.deposit(123.45, transaction) }.to change { subject.balance }.by 123.45
       end
     end
@@ -37,43 +39,42 @@ describe BankAccount do
   end
 
   describe "#withdraw" do
-    it "takes a withdrawal of 500 and decreases the balance by 500" do
+
+    before(:each) do
       subject.deposit(1000, transaction)
-      expect { subject.withdraw(500, transaction) }.to change { subject.balance }.by(-500)
+    end
+    
+    it "takes a withdrawal of 500 and decreases the balance by 500" do
+      expect(subject.withdraw(500, transaction)).to eq 500
     end
 
-    it "gives confirmation of the withdrawal" do
-      subject.deposit(1000, transaction)
-      expect(subject.withdraw(500, transaction)).to eq "£500.00 withdrawn successfully"
+    it "should raise an error if the transaction goes beyond the minimum balance" do
+      withdrawal = 1000 - BankAccount::MINIMUM_BALANCE + 10
+      expect { subject.withdraw(withdrawal, transaction) }.to raise_error(StandardError, 'insufficient funds')
     end
 
     context "input validation" do
 
-      before(:each) do
-        subject.deposit(1000, transaction)
-      end
 
-      it "should raise an error if a string is input" do
+
+      xit "should raise an error if a string is input" do
         expect { subject.withdraw("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
       end
 
-      it "should raise an error if a negative number is input" do
+      xit "should raise an error if a negative number is input" do
         expect { subject.withdraw(-100.00, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
       end
 
-      it "should raise an error if a number with more than 2 decimal places is input" do
+      xit "should raise an error if a number with more than 2 decimal places is input" do
         expect { subject.withdraw(123.456, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
       end
 
-      it "should not raise an error if a postive number with 2 decimal is added" do
+      xit "should not raise an error if a postive number with 2 decimal is added" do
         subject.withdraw(123.45, transaction)
         expect(subject.balance).to be_within(0.000000000001).of(876.55)
       end
 
-      it "should raise an error if the transaction goes beyond the minimum balance" do
-        withdrawal = 1000 - BankAccount::MINIMUM_BALANCE + 10
-        expect { subject.withdraw(withdrawal, transaction) }.to raise_error "insufficient funds"
-      end
+
     end
   end 
 
