@@ -30,40 +30,57 @@ date || credit || debit || balance
 
 From the specification, I have generated the following user stories. 
 
-<code>
+```
 As a bank customer
 So that I can securely store my money
-I want to be able to **deposit** my money into a **bank account**
-</code>
+I want to be able to *deposit* my money into a **bank account**
+```
 ```
 As a bank customer
 So that I can spend my money
-I want to be able to **withdraw** my money from my **bank account
+I want to be able to *withdraw* my money from my *bank account*
 ```
 ```
 As a bank customer
 So that I can see what I have spent on my account
-I want to be able to view an account statement
+I want to be able to *view* an *account statement*
 ```
 ```
 As a bank customer
 So that I can see my most recent purchases first
-I want to be able to see my transactions in reverse chronological order
+I want to be able to see my *transactions* in *reverse chronological* order
 ```
 ```
 As a bank manager
 So that my customers cannot withdraw more money than agreed
-I want to be able to reject transactions that breach the minimum limit
+I want to be able to *reject* transactions that breach the *minimum limit*
 ```
 
 ## Design Approach
 
 The program is split into 4 classes described below, each indedendently unit tested.  
 
-**BankAccount** This manages user transactions
-**transaction** This stores information pertaining to the transaction: Date / Credit or Debit / balance after transaction
-**transaction_history** This stores all previous transactions
-**print_statement** This formats the transactions for printing to stdout
+**BankAccount** This manages user transactions  
+**transaction** This stores information pertaining to the transaction: Date / Credit or Debit / balance after transaction  
+**transaction_history** This stores all previous transactions  
+**print_statement** This formats the transactions for printing to stdout  
+
+## Domain Model
+
+Instance variables and methods attributed to each class
+
+| **BANK_ACCOUNT**     | **TRANSACTION**      | **TRANSACTION_HISTORY** | **PRINT_STATEMENT**
+| ---------------      | -------------------  | ---------------         | ---------------
+| Instance Variables |
+| @balance             | @amount              | @transactions           | @transaction_history |
+| @transactions        | @date                |                         | |
+|                      | @type                |                         | |
+|                      | @balance             |                         | |
+| **Methods** |
+| #deposit             | #amount              | #add                    | #print_header |
+| #withdraw            | #date                |                         | #print_transactions |
+| #statement           | #type                |                         | |
+| #balance             | #balance             |                         | |
 
 
 ## Technologies Used

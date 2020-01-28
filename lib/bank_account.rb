@@ -1,5 +1,5 @@
 class BankAccount
-  attr_reader :balance, :transactions
+  attr_reader :balance
 
   MINIMUM_BALANCE = 0
 
