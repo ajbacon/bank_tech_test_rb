@@ -75,7 +75,5 @@ describe BankAccount do
         expect { subject.withdraw(123.45, transaction) }.to change { subject.balance }.by(-123.45)
       end
     end
-  end
-
-  
+  end 
 end
