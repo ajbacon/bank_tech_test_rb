@@ -1,6 +1,8 @@
 class BankAccount
   attr_reader :balance, :transactions
 
+  MINIMUM_BALANCE = 0
+
   def initialize(history = TransactionHistory.new)
     @balance = 0
     @transactions = history
@@ -14,7 +16,7 @@ class BankAccount
   end
 
   def withdraw(amount, transaction = Transaction)
-    validate_amount(amount)
+    validate_amount(amount, true)
     @balance -= amount
     @transactions.add(transaction.new(amount, "DEBIT", @balance))
     "£#{amount} withdrawn successfully"
@@ -28,10 +30,11 @@ class BankAccount
 
   private 
 
-  def validate_amount(amount)
+  def validate_amount(amount, debit = false)
     check_string(amount)
     check_negative(amount)
     check_decimals(amount)
+    check_funds(amount) if debit
   end
 
   def check_string(amount)
@@ -44,6 +47,10 @@ class BankAccount
 
   def check_decimals(amount)
     raise "please enter number to maximum of 2 decimal places" if decimals(amount) > 2
+  end
+
+  def check_funds(amount)
+    raise "insufficient funds" if @balance - amount < MINIMUM_BALANCE
   end
 
   def decimals(amount)
