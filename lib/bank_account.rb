@@ -16,7 +16,7 @@ class BankAccount
   def withdraw(amount, transaction = Transaction)
     validate_amount(amount)
     @balance -= amount
-    @transactions.add(transaction.new(amount, "CREDIT", @balance))
+    @transactions.add(transaction.new(amount, "DEBIT", @balance))
     "£#{amount} withdrawn successfully"
   end
 
