@@ -1,4 +1,4 @@
-require 'Transaction'
+require 'transaction'
 
 describe Transaction do
 

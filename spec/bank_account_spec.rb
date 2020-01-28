@@ -92,7 +92,6 @@ describe BankAccount do
 
     let(:print_statement1) { double :print_statement }
     before(:each) do
-      allow(print_statement1).to receive :new
       allow(print_statement1).to receive(:print_header) { puts "date || credit || debit || balance" }
       allow(print_statement1).to receive(:print_transactions) { puts "14/01/2012 ||  || 500.00 || 500.00\n10/01/2012 || 1000.00 ||  || 1000.00" }
     end

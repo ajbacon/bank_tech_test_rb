@@ -1,3 +1,7 @@
+require_relative 'transaction'
+require_relative 'print_statement'
+require_relative 'transaction_history'
+
 class BankAccount
   attr_reader :balance
 
@@ -8,22 +12,21 @@ class BankAccount
     @transactions = history
   end
 
-  def deposit(amount, transaction = Transaction)
+  def deposit(amount, transaction_obj = Transaction)
     validate_amount(amount)
     @balance += amount
-    @transactions.add(transaction.new(amount, "CREDIT", @balance))
+    @transactions.add(transaction_obj.new(amount, "CREDIT", @balance))
     "Deposit successful"
   end
 
-  def withdraw(amount, transaction = Transaction)
+  def withdraw(amount, transaction_obj = Transaction)
     validate_amount(amount, true)
     @balance -= amount
-    @transactions.add(transaction.new(amount, "DEBIT", @balance))
+    @transactions.add(transaction_obj.new(amount, "DEBIT", @balance))
     "£#{amount} withdrawn successfully"
   end
 
-  def statement(print_statement = PrintStatement)
-    print_statement.new(@transactions)
+  def statement(print_statement = PrintStatement.new(@transactions))
     print_statement.print_header
     print_statement.print_transactions
   end
