@@ -82,7 +82,7 @@ describe BankAccount do
       end
 
       it "should raise an error if the transaction goes beyond the minimum balance" do
-        withdrawal = 1000 - BankAccount::MINIMUM_BALANCE+ 10
+        withdrawal = 1000 - BankAccount::MINIMUM_BALANCE + 10
         expect { subject.withdraw(withdrawal, transaction) }.to raise_error "insufficient funds"
       end
     end
