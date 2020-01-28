@@ -1,6 +1,6 @@
 # Bank tech test
 
-Makers week 10 practice tech test. This is a mock "Take Home" tech test, with essentially unlimited time. The aim is to use the test to OO design and TDD skills.
+Makers week 10 practice tech test. This is a mock "Take Home" tech test, with essentially unlimited time. The aim is to use the test to proctice OO design and TDD skills.
 
 ## Specification
 
@@ -60,10 +60,10 @@ I want to be able to *reject* transactions that breach the *minimum limit*
 
 The program is split into 4 classes described below, each indedendently unit tested.  
 
-**BankAccount** This manages user transactions  
-**transaction** This stores information pertaining to the transaction: Date / Credit or Debit / balance after transaction  
-**transaction_history** This stores all previous transactions  
-**print_statement** This formats the transactions for printing to stdout  
+**BankAccount:** This manages user transactions  
+**transaction:** This stores information pertaining to the transaction: Date / Credit or Debit / balance after transaction  
+**transaction_history:** This stores all previous transactions  
+**print_statement:** This formats the transactions for printing to stdout  
 
 ## Domain Model
 
