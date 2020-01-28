@@ -6,16 +6,18 @@ class BankAccount
     @transactions = history
   end
 
-  def deposit(amount)
+  def deposit(amount, transaction = Transaction)
     validate_amount(amount)
     @balance += amount
-    @transactions.add_transaction(amount, @balance)
+    @transactions.add(transaction.new(amount, "CREDIT", @balance))
+    "Deposit successful"
   end
 
-  def withdraw(amount)
+  def withdraw(amount, transaction = Transaction)
     validate_amount(amount)
     @balance -= amount
-    @transactions.add_transaction(amount, @balance)
+    @transactions.add(transaction.new(amount, "CREDIT", @balance))
+    "£#{amount} withdrawn successfully"
   end
 
   private 
