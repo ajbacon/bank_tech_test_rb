@@ -23,7 +23,7 @@ class BankAccount
     validate_amount(amount, true)
     @balance -= amount
     @transactions.add(transaction_obj.new(amount, "DEBIT", @balance))
-    "£#{amount} withdrawn successfully"
+    "£#{'%.2f' % amount} withdrawn successfully"
   end
 
   def statement(print_statement = PrintStatement.new(@transactions))

@@ -97,3 +97,52 @@ Instance variables and methods attributed to each class
 
 * ```rubocop 0.71.0``` (linting)
 * ```simplecov``` (test coverage)
+
+## How to Run
+
+### Run Tests
+
+* run ```rspec``` to run the tests and show test coverage
+* run ```rubocop``` to run the linter
+
+### Run the Program in REPL
+
+* Clone this repository
+* Navigate to the created directory
+* Run ```bundle```
+* type ```irb``` into the console
+* require the program by typing ```require './lib/bank_account.rb'```
+
+### Example Usage 
+
+```
+require program:
+  2.6.3 :001 > require './lib/bank_account.rb'
+  => true 
+
+create account:
+  2.6.3 :002 > account = BankAccount.new
+  => #<BankAccount:0x00007fb554090360 @balance=0, @transactions=#<TransactionHistory:0x00007fb554090338 @transactions=[]>> 
+
+make deposits:
+  2.6.3 :003 > account.deposit(1000)
+  => "Deposit successful" 
+  2.6.3 :004 > account.deposit(2000)
+  => "Deposit successful" 
+
+make a withdrawal:
+  2.6.3 :005 > account.withdraw(500)
+  => "£500.00 withdrawn successfully" 
+
+print statement:
+  2.6.3 :006 > account.statement
+  date || credit || debit || balance
+  28/01/2020 ||  || 500.00 || 2500.00
+  28/01/2020 || 2000.00 ||  || 3000.00
+  28/01/2020 || 1000.00 ||  || 1000.00
+```
+
+
+
+
+
