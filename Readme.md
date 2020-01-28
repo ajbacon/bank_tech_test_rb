@@ -33,7 +33,7 @@ From the specification, I have generated the following user stories.
 ```
 As a bank customer
 So that I can securely store my money
-I want to be able to *deposit* my money into a **bank account**
+I want to be able to *deposit* my money into a *bank account*
 ```
 ```
 As a bank customer
@@ -71,12 +71,15 @@ Instance variables and methods attributed to each class
 
 | **BANK_ACCOUNT**     | **TRANSACTION**      | **TRANSACTION_HISTORY** | **PRINT_STATEMENT**
 | ---------------      | -------------------  | ---------------         | ---------------
-| Instance Variables |
+| **Instance Variables** |
+| ---------------      | -------------------  | ---------------         | ---------------
 | @balance             | @amount              | @transactions           | @transaction_history |
 | @transactions        | @date                |                         | |
 |                      | @type                |                         | |
 |                      | @balance             |                         | |
+| ---------------      | -------------------  | ---------------         | ---------------
 | **Methods** |
+| ---------------      | -------------------  | ---------------         | ---------------
 | #deposit             | #amount              | #add                    | #print_header |
 | #withdraw            | #date                |                         | #print_transactions |
 | #statement           | #type                |                         | |
