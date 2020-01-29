@@ -1,5 +1,5 @@
 module InputValidation
-
+  INPUT_ERROR = "please enter positive value to maximum of 2 decimal places" 
   def check_input(amount)
     check_string(amount)
     check_negative(amount)
@@ -10,15 +10,15 @@ module InputValidation
   private
 
   def check_string(amount)
-    raise StandardError, "please enter positive value to maximum of 2 decimal places" if amount.is_a? String
+    raise StandardError, INPUT_ERROR if amount.is_a? String
   end
 
   def check_negative(amount)
-    raise StandardError, "please enter positive value to maximum of 2 decimal places" if amount.negative?
+    raise StandardError, INPUT_ERROR if amount.negative?
   end
 
   def check_decimals(amount)
-    raise StandardError, "please enter positive value to maximum of 2 decimal places" if decimals(amount) > 2
+    raise StandardError, INPUT_ERROR if decimals(amount) > 2
   end
 
   def decimals(amount)

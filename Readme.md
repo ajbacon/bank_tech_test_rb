@@ -65,7 +65,7 @@ The program is split into 4 classes described below, each indedendently unit tes
 **transaction_history:** This stores all previous transactions  
 **print_statement:** This formats the transactions for printing to stdout
 
-The code is constructed so that transaction interactions are handled by the bank account class, this class delegates responsibility for storing transaction information, storing transactions and formatting transaction data for printing the summary to ```transaction```, ```transaction_history``` and ```print_statement``` classes respectively. In this way each class can have a single responsibility. A transaction object is created and stored upon calling a ```deposit``` or ```withdraw``` method. The ```statement``` method creates an object of the ```print_statement``` class, which takes all exising transactions and formats them for printing to stdout.
+The code is constructed so that transaction interactions are handled by the bank account class, this class delegates responsibility for storing transaction information, storing transactions and formatting transaction data for printing the summary to ```transaction```, ```transaction_history``` and ```print_statement``` classes respectively. In this way each class can have a single responsibility. A ```transaction``` object is created and stored by the ```transaction_log``` class which is initialised by calling a ```deposit``` or ```withdraw``` method from the ```bank_account class```. The ```statement``` method creates an object of the ```print_statement``` class, which takes all exising transactions and formats them for printing to stdout.
 
 ## Domain Model
 

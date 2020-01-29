@@ -16,7 +16,6 @@ describe Transaction do
     expect(subject.date).to eq "27/01/2020"
   end
 
-
   describe "#balance" do
     let(:credit) { described_class.new(1000, "CREDIT", 1000, "27/01/2020") }
     let(:debit) { described_class.new(500, "DEBIT", 1000, "27/01/2020") }
