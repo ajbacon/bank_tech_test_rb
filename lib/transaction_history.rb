@@ -6,7 +6,8 @@ class TransactionHistory
     @transactions = []
   end
 
-  def add(transaction)
-    @transactions.unshift(transaction)
+  def add(amount, type, balance, transaction_obj = Transaction)
+    transaction = transaction_obj.new(amount, type, balance)
+    @transactions.unshift(transaction).first
   end
 end
