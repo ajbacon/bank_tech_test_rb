@@ -15,25 +15,6 @@ describe BankAccount do
       allow(transaction_history).to receive :add_transaction
       expect(subject.deposit(1000, transaction)).to equal 1000
     end
-
-    context "input validation" do
-      it "should raise an error if a string is input" do
-        expect { subject.deposit("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
-      end
-
-      it "should raise an error if a negative number is input" do
-        expect { subject.deposit(-100.00, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
-      end
-
-      it "should raise an error if a numnber with more than 2 decimal places is input" do
-        expect { subject.deposit(123.456, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
-      end
-
-      xit "should not raise an error if a postive number with 2 decimal is added" do
-        expect { subject.deposit(123.45, transaction) }.to change { subject.balance }.by 123.45
-      end
-    end
-
   end
 
   describe "#withdraw" do
@@ -49,26 +30,6 @@ describe BankAccount do
     it "should raise an error if the transaction goes beyond the minimum balance" do
       withdrawal = 1000 - BankAccount::MINIMUM_BALANCE + 10
       expect { subject.withdraw(withdrawal, transaction) }.to raise_error(StandardError, 'insufficient funds')
-    end
-
-    context "input validation" do
-
-      xit "should raise an error if a string is input" do
-        expect { subject.withdraw("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
-      end
-
-      xit "should raise an error if a negative number is input" do
-        expect { subject.withdraw(-100.00, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
-      end
-
-      xit "should raise an error if a number with more than 2 decimal places is input" do
-        expect { subject.withdraw(123.456, transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
-      end
-
-      xit "should not raise an error if a postive number with 2 decimal is added" do
-        subject.withdraw(123.45, transaction)
-        expect(subject.balance).to be_within(0.000000000001).of(876.55)
-      end
     end
   end 
 
