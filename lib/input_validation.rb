@@ -1,13 +1,9 @@
-class InputValidation
+module InputValidation
 
-  def initialize(amount)
-    @amount = amount
-  end
-
-  def check
-    check_string(@amount)
-    check_negative(@amount)
-    check_decimals(@amount)
+  def check_input(amount)
+    check_string(amount)
+    check_negative(amount)
+    check_decimals(amount)
     true
   end
 
