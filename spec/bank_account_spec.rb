@@ -16,8 +16,6 @@ describe BankAccount do
       expect(subject.deposit(1000, transaction)).to equal 1000
     end
 
-
-
     context "input validation" do
       it "should raise an error if a string is input" do
         expect { subject.deposit("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
@@ -55,8 +53,6 @@ describe BankAccount do
 
     context "input validation" do
 
-
-
       xit "should raise an error if a string is input" do
         expect { subject.withdraw("string", transaction) }.to raise_error "please enter number to maximum of 2 decimal places"
       end
@@ -73,8 +69,6 @@ describe BankAccount do
         subject.withdraw(123.45, transaction)
         expect(subject.balance).to be_within(0.000000000001).of(876.55)
       end
-
-
     end
   end 
 

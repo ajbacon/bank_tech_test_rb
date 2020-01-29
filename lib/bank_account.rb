@@ -20,8 +20,8 @@ class BankAccount
 
   def withdraw(amount, transaction_obj = Transaction)
     raise StandardError, "insufficient funds" if @balance - amount < MINIMUM_BALANCE
-    validate_amount(amount)
     
+    validate_amount(amount)
     @transactions.add(transaction_obj.new(amount, "DEBIT", @balance))
     @balance -= amount
   end
