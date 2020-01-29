@@ -15,7 +15,6 @@ describe TransactionHistory do
   end
 
   describe "#transactions" do
-
     before(:each) do
       allow(transaction1).to receive(:date) { "27/01/2020" }
       allow(transaction2).to receive(:date) { "28/01/2020" }
