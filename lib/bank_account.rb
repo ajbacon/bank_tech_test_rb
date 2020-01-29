@@ -13,15 +13,15 @@ class BankAccount
     @transactions = history
   end
 
-  def deposit(amount, transaction_obj = Transaction)
-    self.check_input(amount)
+  def deposit(amount)
+    check_input(amount)
     
     @transactions.add(amount, "CREDIT", @balance)
     @balance += amount
   end
 
-  def withdraw(amount, transaction_obj = Transaction)
-    self.check_input(amount)
+  def withdraw(amount)
+    check_input(amount)
     raise StandardError, "insufficient funds" if @balance - amount < MINIMUM_BALANCE
     
     @transactions.add(amount, "DEBIT", @balance)

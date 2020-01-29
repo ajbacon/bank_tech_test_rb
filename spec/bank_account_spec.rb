@@ -13,23 +13,23 @@ describe BankAccount do
   describe "#deposit" do
     it "takes a deposit of 1000 and increases the balance by 1000" do
       allow(transaction_history).to receive :add_transaction
-      expect(subject.deposit(1000, transaction)).to equal 1000
+      expect(subject.deposit(1000)).to equal 1000
     end
   end
 
   describe "#withdraw" do
 
     before(:each) do
-      subject.deposit(1000, transaction)
+      subject.deposit(1000)
     end
     
     it "takes a withdrawal of 500 and decreases the balance by 500" do
-      expect(subject.withdraw(500, transaction)).to eq 500
+      expect(subject.withdraw(500)).to eq 500
     end
 
     it "should raise an error if the transaction goes beyond the minimum balance" do
       withdrawal = 1000 - BankAccount::MINIMUM_BALANCE + 10
-      expect { subject.withdraw(withdrawal, transaction) }.to raise_error(StandardError, 'insufficient funds')
+      expect { subject.withdraw(withdrawal) }.to raise_error(StandardError, 'insufficient funds')
     end
   end 
 

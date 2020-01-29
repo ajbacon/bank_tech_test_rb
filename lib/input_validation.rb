@@ -29,6 +29,4 @@ module InputValidation
     end
     num   
   end
-
-
 end
