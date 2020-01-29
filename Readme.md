@@ -128,13 +128,13 @@ create account:
 
 make deposits:
   2.6.3 :003 > account.deposit(1000)
-  => "Deposit successful" 
+  => 1000  
   2.6.3 :004 > account.deposit(2000)
-  => "Deposit successful" 
+  => 3000  
 
 make a withdrawal:
   2.6.3 :005 > account.withdraw(500)
-  => "£500.00 withdrawn successfully" 
+  => 2500
 
 print statement:
   2.6.3 :006 > account.statement
