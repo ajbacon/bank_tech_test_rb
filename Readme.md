@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ajbacon/bank_tech_test_rb.svg?branch=master)](https://travis-ci.org/ajbacon/bank_tech_test_rb)
 # Bank tech test
 
 Makers week 10 practice tech test. This is a mock "Take Home" tech test, with essentially unlimited time. The aim is to use the test to proctice OO design and TDD skills.
